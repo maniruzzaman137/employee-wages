@@ -1,0 +1,62 @@
+/* AssignmentEmployeeWages.java
+   Description :Wages class for calculating gross, tax and net wages
+   Programmer  :Mohammad Maniruzzaman
+   Date        :25/11/2020
+*/
+
+import javax.swing.*;
+public class Wages
+{
+          
+    // Method for calculating gross wages
+    public static void calcGross()
+    {
+        //JOptionPane.showMessageDialog(null,"In (3) calcGross()");
+        for (int i = 0; i < 12; i++)
+        {
+          gross[i] = rate[i] * hours[i];
+        }
+    }
+     
+    // Method for calculating tax
+    public static void calcTax()
+    {
+        //JOptionPane.showMessageDialog(null,"In (4) calcTax()"); 
+      for (int i = 0; i < 12; i++)
+        {
+          if (gross[i] <= 350) 
+          {
+            tax[i] = 0;
+          } 
+          else 
+            {  
+              if ((gross[i] > 350) & (gross[i] <= 700))
+               {
+                 tax[i] = (gross[i] - 350)*.1;
+               }
+              else 
+              {
+                  if ((gross[i] > 700) & (gross[i] <= 1500))
+                  {
+                     tax[i] = (gross[i] - 700)*.15 + 35;
+                  }
+                  else
+                  {
+                     tax[i] = (gross[i] -1500)*.25 + 35 + 800*.15;
+                  }
+              }
+             }
+        }
+    }  
+    
+    // Method for calculating net wages
+    public static void calcNett()
+    {
+       //JOptionPane.showMessageDialog(null,"In (5) calcNett()");
+      for (int i = 0; i < 12; i++) 
+       {
+         nett[i] = gross[i] - tax[i];
+       }
+    }
+    
+}
